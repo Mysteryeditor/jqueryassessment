@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/additional-methods.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("#form1").validate({
+       rules:{
+        'name':{
+            required:true,
+            minlength:8,
+            maxlength:15,
+            pattern:/[a-zA-Z]/
+        },
+        'password':{
+            required:true,
+            minlength:8,
+            maxlength:15,
+            pattern:/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])/
+            
+
+        },
+        'email':{
+            required:true,
+            
+            pattern:/^[\w]+@+g2techsoft[\.]+com+$/
+        },
+       
+        'phone':{
+            required:true,
+            pattern:/[0-9]{4}-[0-9]{3}-[0-9]{4}/
+        }
+    
+        
+    },
+    messages:{
+        'name':{
+            required:'required',
+        },
+        'password':{
+            required:'required',
+            minlength:'Password should contain atleast 8 characters',
+            maxlength:'password should be 16char',
+            pattern:'doesnt match the regex'
+
+        },
+        'email':{
+            required:'required',
+            pattern:'@g2techsoft domain'
+        },
+        'phone':{
+            required:"please enter the phone number",
+           
+            pattern:'The phone number should be in this pattern 4-3-4'
+        }
+    }
+    
+    })
+})
+
+</script>
+
+
+</head>
+<body>
+
+
+
+    <h2>Registration form</h2>
+    <form action="" id="form1">
+<label for="name">Username: </label>
+<input type="text" id="name" name="name"><br><br>
+<label for="password">Password: </label>
+<input type="text" id="password" name="password"><br><br>
+<label for="email">Email: </label>
+<input type="text" id="email" name="email"><br><br>
+<label for="phone">Phone:</label>
+<input type="text" name="phone" id="phone">
+<br><br>
+<button type="submit">Submit</button>
+
+
+    </form>
+    
+</body>
+</html>
+
+
+
+
